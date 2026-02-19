@@ -62,6 +62,12 @@ class TestData:
         assert self.data.encuentra_numero_faltante([2, 3, 4, 5]) == 1
         # Test con número faltante al final
         assert self.data.encuentra_numero_faltante([1, 2, 3, 4]) == 5
+        # Test con lista de un solo elemento (falta el 2)
+        assert self.data.encuentra_numero_faltante([1]) == 2
+        # Test con rango mayor (1 al 10, falta el 7)
+        assert self.data.encuentra_numero_faltante([1, 2, 3, 4, 5, 6, 8, 9, 10]) == 7
+        # Test con lista desordenada que tiene un faltante
+        assert self.data.encuentra_numero_faltante([3, 1, 4, 5, 2, 7, 6]) == 8
     
     def test_es_subconjunto(self):
         # Test con subconjunto verdadero

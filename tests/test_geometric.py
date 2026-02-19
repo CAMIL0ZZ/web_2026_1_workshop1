@@ -13,6 +13,8 @@ class TestGeometria:
         assert self.geometria.area_rectangulo(2.5, 3) == 7.5
         # Test con cero (área cero)
         assert self.geometria.area_rectangulo(0, 5) == 0
+        # Test con valor negativo (debe retornar 0)
+        assert self.geometria.area_rectangulo(-3, 5) == 0
     
     def test_perimetro_rectangulo(self):
         # Test con valores enteros positivos
@@ -29,6 +31,8 @@ class TestGeometria:
         assert round(self.geometria.area_circulo(1.5), 2) == 7.07
         # Test con radio cero
         assert self.geometria.area_circulo(0) == 0
+        # Test con radio negativo (debe retornar 0)
+        assert self.geometria.area_circulo(-2) == 0
     
     def test_perimetro_circulo(self):
         # Test con radio entero
@@ -117,6 +121,8 @@ class TestGeometria:
         assert self.geometria.volumen_cubo(2.5) == 15.625
         # Test con lado cero (volumen cero)
         assert self.geometria.volumen_cubo(0) == 0
+        # Test con lado negativo (debe retornar 0)
+        assert self.geometria.volumen_cubo(-2) == 0
     
     def test_area_superficie_cubo(self):
         # Test con valor entero

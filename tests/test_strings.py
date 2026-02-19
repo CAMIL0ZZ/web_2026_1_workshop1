@@ -44,8 +44,8 @@ class TestStrings:
         assert self.strings.contar_consonantes("Python") == 5
         # Test con cadena sin consonantes
         assert self.strings.contar_consonantes("aeiou") == 0
-        # Test con consonantes en mayúsculas y minúsculas
-        assert self.strings.contar_consonantes("PythOn") != 4
+        # Test con consonantes en mayúsculas y minúsculas (P, t, h, n = 4 consonantes)
+        assert self.strings.contar_consonantes("PythOn") == 4
         # Test con cadena vacía
         assert self.strings.contar_consonantes("") == 0
     

@@ -133,8 +133,8 @@ class TestGames:
             comb = self.games.generar_combinacion_mastermind(4, colores)
             combinaciones.append(tuple(comb))  # Convertir a tupla para comparar
         
-        # Al menos debe haber alguna variación en 10 intentos (muy probable)
-        assert len(set(combinaciones)) >= 1  # Mínimo debe generar algo
+        # Debe haber variación en 10 intentos (garantiza aleatoriedad real)
+        assert len(set(combinaciones)) > 1  # Debe generar al menos 2 combinaciones distintas
     
     def test_validar_movimiento_torre_ajedrez(self):
         # Tablero vacío para movimientos básicos

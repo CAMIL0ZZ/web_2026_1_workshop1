@@ -13,9 +13,13 @@ class TestMagic:
         assert self.magic.fibonacci(3) == 2
         assert self.magic.fibonacci(10) == 55
         assert self.magic.fibonacci(10) != 35
+        # Test para entrada negativa (debe retornar None)
+        assert self.magic.fibonacci(-1) is None
+        assert self.magic.fibonacci(-5) is None
     
     def test_secuencia_fibonacci(self):
         # Test para generar secuencia de Fibonacci
+        assert self.magic.secuencia_fibonacci(0) == []
         assert self.magic.secuencia_fibonacci(1) == [0]
         assert self.magic.secuencia_fibonacci(2) == [0, 1]
         assert self.magic.secuencia_fibonacci(5) == [0, 1, 1, 2, 3]
@@ -71,6 +75,9 @@ class TestMagic:
         assert self.magic.factorial(1) == 1
         assert self.magic.factorial(5) == 120
         assert self.magic.factorial(10) == 3628800
+        # Test para entrada negativa (debe retornar None)
+        assert self.magic.factorial(-1) is None
+        assert self.magic.factorial(-3) is None
     
     def test_mcd(self):
         # Test para máximo común divisor
