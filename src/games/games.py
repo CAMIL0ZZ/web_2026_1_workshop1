@@ -80,6 +80,7 @@ class Games:
             
         Reglas:
             - La torre se mueve horizontal o verticalmente
-            - No puede saltar sobre otras piezas
+            - No puede saltar sobre otras piezass
         """
         pass
+    
