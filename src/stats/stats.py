@@ -12,7 +12,9 @@ class Stats:
         Ejemplo:
             promedio([1, 2, 3, 4, 5]) -> 3.0
         """
-        pass
+        if len(numeros) == 0:
+            return 0
+        return sum(numeros) / len(numeros)
     
     def mediana(self, numeros):
         """
@@ -29,7 +31,17 @@ class Stats:
             mediana([1, 2, 3, 4, 5]) -> 3.0
             mediana([1, 2, 3, 4]) -> 2.5
         """
-        pass
+        if len(numeros) == 0:
+            return 0
+
+        nums = sorted(numeros)
+        n = len(nums)
+        mitad = n // 2
+
+        if n % 2 == 1:
+            return float(nums[mitad])
+        else:
+            return (nums[mitad - 1] + nums[mitad]) / 2
     
     def moda(self, numeros):
         """
@@ -45,7 +57,24 @@ class Stats:
         Ejemplo:
             moda([1, 2, 2, 3, 3, 3]) -> 3
         """
-        pass
+        if len(numeros) == 0:
+            return None
+
+        frecuencias = {}
+        max_frecuencia = 0
+        moda_valor = None
+
+        for num in numeros:
+            if num in frecuencias:
+                frecuencias[num] += 1
+            else:
+                frecuencias[num] = 1
+
+            if frecuencias[num] > max_frecuencia:
+                max_frecuencia = frecuencias[num]
+                moda_valor = num
+
+        return moda_valor
     
     def desviacion_estandar(self, numeros):
         """
@@ -61,7 +90,21 @@ class Stats:
         Ejemplo:
             desviacion_estandar([1, 2, 3, 4, 5]) -> 1.41...
         """
-        pass
+        if len(numeros) == 0:
+            return 0
+
+        n = len(numeros)
+        if n == 1:
+            return 0.0
+
+        media = self.promedio(numeros)
+
+        suma = 0
+        for num in numeros:
+            suma += (num - media) ** 2
+
+        varianza = suma / n  # poblacional
+        return varianza ** 0.5
     
     def varianza(self, numeros):
         """
@@ -77,7 +120,20 @@ class Stats:
         Ejemplo:
             varianza([1, 2, 3, 4, 5]) -> 2.0
         """
-        pass
+        if len(numeros) == 0:
+            return 0
+
+        n = len(numeros)
+        if n == 1:
+            return 0.0
+
+        media = self.promedio(numeros)
+
+        suma = 0
+        for num in numeros:
+            suma += (num - media) ** 2
+
+        return suma / n  # poblacional
     
     def rango(self, numeros):
         """
@@ -92,4 +148,7 @@ class Stats:
         Ejemplo:
             rango([1, 5, 3, 9, 2]) -> 8
         """
-        pass
+        if len(numeros) == 0:
+            return 0
+
+        return max(numeros) - min(numeros)
